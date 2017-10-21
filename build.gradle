@@ -30,3 +30,13 @@ mainClassName = "se.omegapoint.mobvshermits.Main"
 task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from(configurations.compile)
+}
+
+stage.dependsOn(copyToLib)
