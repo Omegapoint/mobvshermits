@@ -36,7 +36,7 @@ build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
     into "$buildDir/lib"
-    from(configurations.compile)
+    from(configurations.runtime)
 }
 
 stage.dependsOn(copyToLib)
