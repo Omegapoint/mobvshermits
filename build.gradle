@@ -15,8 +15,8 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
     compile 'org.glassfish.jersey.core:jersey-client:2.26'
-    runtime 'org.glassfish.jersey.inject:jersey-hk2:2.26'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    runtime 'org.glassfish.jersey.inject:jersey-hk2:2.26'
     runtime group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
     runtime group: 'log4j', name: 'log4j', version: '1.2.16'
 
@@ -26,6 +26,16 @@ dependencies {
 }
 
 mainClassName = "se.omegapoint.mobvshermits.Main"
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    into "$buildDir/lib"
+    from(configurations.runtime)
+}
+
+stage.dependsOn(copyToLib)
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
