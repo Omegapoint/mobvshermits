@@ -1,7 +1,7 @@
 package se.omegapoint.mobvshermits.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -10,11 +10,12 @@ import se.omegapoint.mobvshermits.Config;
 import se.omegapoint.mobvshermits.json.StopLocation;
 import se.omegapoint.mobvshermits.json.StopLocationsResponse;
 
-import javax.ws.rs.Path;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.QueryParam;
 import java.net.URI;
 import java.util.Collection;
 
+@RequestMapping("/")
 @RestController
 public class StopResource {
     public static final String HTTPS_API_RESROBOT_SE_V2 = "https://api.resrobot.se/v2";
@@ -27,15 +28,26 @@ public class StopResource {
         this.config = config;
     }
 
-    @RequestMapping
-    @Path("/stop")
-    public Collection<StopLocation> getStopsByName(@QueryParam("query") String query) {
+    @GetMapping("/stop")
+    public Collection<StopLocation> getStopsByName(@NotNull @QueryParam("query") String query) {
         final URI uri = UriComponentsBuilder.fromUriString(HTTPS_API_RESROBOT_SE_V2 + "/location.name")
                 .queryParam("key", config.resrobotKey())
                 .queryParam("format", "json")
                 .queryParam("input", query)
                 .build().toUri();
-        final ResponseEntity<StopLocationsResponse> responseEntity = restTemplate.getForEntity(uri, StopLocationsResponse.class);
-        return responseEntity.getBody().getStopLocations();
+        return restTemplate.getForEntity(uri, StopLocationsResponse.class).getBody().getStopLocations();
     }
+
+    @GetMapping("/near")
+    public Collection<StopLocation> getStopsNearBy(@NotNull @QueryParam("lat") Float lat,
+                                                   @NotNull @QueryParam("lon") Float lon) {
+        final URI uri = UriComponentsBuilder.fromUriString(HTTPS_API_RESROBOT_SE_V2 + "/location.nearbystops")
+                .queryParam("key", config.resrobotKey())
+                .queryParam("format", "json")
+                .queryParam("originCoordLat", lat)
+                .queryParam("originCoordLong", lon)
+                .build().toUri();
+        return restTemplate.getForEntity(uri, StopLocationsResponse.class).getBody().getStopLocations();
+    }
+
 }
