@@ -1,23 +1,17 @@
 package se.omegapoint.mobvshermits;
 
-import spark.Spark;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.Response;
 
-import static spark.Spark.staticFiles;
 
+@EnableAutoConfiguration
 public class Main {
-    public static void main(String... args) {
-
-        Spark.port(8080);
-
-        Spark.staticFileLocation("/public");
-        staticFiles.registerMimeType("html", "text/html; charset=utf-8");
-
-        final Config config = new Config();
-        Spark.get("/hello", (req, res) -> "Hello World");
-        Spark.get("/stops", (req, res) -> getLocationsByName(config, "Skövde"));
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Main.class, args);
     }
 
     private static String getLocationsByName(Config config, String name) {
