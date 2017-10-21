@@ -16,11 +16,12 @@ public class Config {
         try {
             properties.load(propertiesStream);
         } catch (IOException e) {
-            log.error("Failed to load properties!");
+            log.error("Failed to load properties!", e);
+            throw new RuntimeException(e);
         }
     }
 
-    public String resrobotKey() throws IOException {
+    public String resrobotKey() {
         return properties.getProperty("resrobot.key");
     }
 }
