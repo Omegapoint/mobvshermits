@@ -27,15 +27,25 @@ dependencies {
 
 mainClassName = "se.omegapoint.mobvshermits.Main"
 
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.runtime.collect { it.getName() }.join(' '),
+                'Main-Class': mainClassName
+        )
+    }
+}
+
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
 task copyToLib(type: Copy) {
-    into "$buildDir/lib"
+    into "$buildDir/libs"
     from(configurations.runtime)
 }
 
 stage.dependsOn(copyToLib)
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
