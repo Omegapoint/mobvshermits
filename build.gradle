@@ -48,14 +48,6 @@ jar {
 task stage(dependsOn: ['build', 'clean'])
 build.mustRunAfter clean
 
-task copyToLib(type: Copy) {
-    into "$buildDir/libs"
-    from(configurations.runtime)
-}
-
-stage.dependsOn(copyToLib)
-
-
 task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
 }

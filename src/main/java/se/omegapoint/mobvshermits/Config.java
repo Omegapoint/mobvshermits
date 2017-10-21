@@ -4,15 +4,21 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 import java.util.Properties;
 
 @Slf4j
 public class Config {
 
-    private final Properties properties = new Properties();
+    private final Properties properties = System.getProperties();
 
     public Config() {
-        final InputStream propertiesStream = this.getClass().getClassLoader().getResourceAsStream("secret.properties");
+        final Optional<InputStream> propertiesStream
+                = Optional.ofNullable(this.getClass().getClassLoader().getResourceAsStream("secret.properties"));
+        propertiesStream.ifPresent(this::loadPropsFromStream);
+    }
+
+    private void loadPropsFromStream(InputStream propertiesStream) {
         try {
             properties.load(propertiesStream);
         } catch (IOException e) {
@@ -22,6 +28,17 @@ public class Config {
     }
 
     public String resrobotKey() {
-        return properties.getProperty("resrobot.key");
+        return Optional.ofNullable(properties.getProperty("resrobot.key"))
+            .orElseGet(() ->getKeyFromEnv());
+    }
+
+    public int port() {
+        final String port = Optional.ofNullable(System.getenv("PORT")).orElse("8080");
+        return Integer.parseInt(port);
+    }
+
+    private String getKeyFromEnv() {
+        return Optional.ofNullable(System.getenv("RESROBOT_KEY"))
+                .orElseThrow(() -> new IllegalStateException("Resrobot API key config not found"));
     }
 }
