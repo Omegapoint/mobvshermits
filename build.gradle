@@ -2,6 +2,7 @@ group 'se.omegapoint.mobvshermits'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -10,11 +11,14 @@ repositories {
 }
 
 dependencies {
+    compile "com.sparkjava:spark-core:2.6.0"
     compile group: 'com.google.guava', name: 'guava', version: '19.0'
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.8.0'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
 }
+
+mainClassName = "se.omegapoint.mobvshermits.Main"
 
 task wrapper(type: Wrapper) {
     gradleVersion = '4.1'
