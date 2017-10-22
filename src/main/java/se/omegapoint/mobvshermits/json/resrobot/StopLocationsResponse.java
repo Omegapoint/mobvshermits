@@ -1,4 +1,4 @@
-package se.omegapoint.mobvshermits.json;
+package se.omegapoint.mobvshermits.json.resrobot;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +18,7 @@ public class StopLocationsResponse {
     @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
         @JsonProperty("StopLocation")
-        public void setStopLocation(Collection<se.omegapoint.mobvshermits.json.StopLocation> stopLocations) {
+        public void setStopLocation(Collection<StopLocation> stopLocations) {
             this.stopLocations = stopLocations;
         }
     }

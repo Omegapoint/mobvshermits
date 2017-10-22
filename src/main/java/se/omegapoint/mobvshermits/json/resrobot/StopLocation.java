@@ -1,4 +1,4 @@
-package se.omegapoint.mobvshermits.json;
+package se.omegapoint.mobvshermits.json.resrobot;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
