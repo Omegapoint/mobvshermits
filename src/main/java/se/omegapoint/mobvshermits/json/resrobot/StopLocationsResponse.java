@@ -13,7 +13,7 @@ import java.util.Collection;
 @Value
 @Builder(builderClassName = "Builder")
 public class StopLocationsResponse {
-    Collection<StopLocation> stopLocations;
+    private final Collection<StopLocation> stopLocations;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {

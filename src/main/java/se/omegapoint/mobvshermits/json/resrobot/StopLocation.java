@@ -11,10 +11,10 @@ import lombok.Value;
 @Value
 @Builder(builderClassName = "Builder")
 public class StopLocation {
-    String name;
-    int products;
-    Float lon;
-    Float lat;
+    private final String name;
+    private final int products;
+    private final Float lon;
+    private final Float lat;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {

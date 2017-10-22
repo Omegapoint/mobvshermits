@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import se.omegapoint.mobvshermits.Config;
+import se.omegapoint.mobvshermits.gui.Product;
 import se.omegapoint.mobvshermits.gui.Stop;
 import se.omegapoint.mobvshermits.json.resrobot.StopLocation;
 import se.omegapoint.mobvshermits.json.resrobot.StopLocationsResponse;
@@ -14,10 +15,12 @@ import se.omegapoint.mobvshermits.json.resrobot.StopLocationsResponse;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.QueryParam;
 import java.net.URI;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 import static com.google.common.collect.Collections2.transform;
+import static java.util.stream.Collectors.toList;
 
 @RequestMapping("/")
 @RestController
@@ -56,7 +59,9 @@ public class StopResource {
     }
 
     private static Stop stop(StopLocation stopLocation) {
-        Collection<String> products = Collections.singletonList("train");
+        final List<Product> products = Arrays.stream(Product.values())
+                .filter(product -> (product.getMask() & stopLocation.getProducts()) != 0)
+                .collect(toList());
         return Stop.builder().products(products).name(stopLocation.getName()).build();
     }
 }

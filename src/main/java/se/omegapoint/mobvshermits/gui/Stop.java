@@ -13,8 +13,8 @@ import java.util.Collection;
 @Value
 @Builder(builderClassName = "Builder")
 public class Stop {
-    String name;
-    Collection<String> products;
+    private final String name;
+    private final Collection<Product> products;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
