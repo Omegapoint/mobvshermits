@@ -22,14 +22,13 @@ public class Config {
         try {
             properties.load(propertiesStream);
         } catch (IOException e) {
-            log.error("Failed to load properties!", e);
-            throw new RuntimeException(e);
+            throw new IllegalStateException("Failed to load properties!", e);
         }
     }
 
     public String resrobotKey() {
         return Optional.ofNullable(properties.getProperty("resrobot.key"))
-            .orElseGet(() ->getKeyFromEnv());
+            .orElseGet(this::getKeyFromEnv);
     }
 
     public int port() {
