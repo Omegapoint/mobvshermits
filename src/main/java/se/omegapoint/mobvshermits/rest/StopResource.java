@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import se.omegapoint.mobvshermits.Config;
-import se.omegapoint.mobvshermits.gui.Icon;
+import se.omegapoint.mobvshermits.gui.Product;
 import se.omegapoint.mobvshermits.gui.Stop;
 import se.omegapoint.mobvshermits.json.resrobot.StopLocation;
 import se.omegapoint.mobvshermits.json.resrobot.StopLocationsResponse;
@@ -59,9 +59,9 @@ public class StopResource {
     }
 
     private static Stop stop(StopLocation stopLocation) {
-        final List<Icon> icons = Arrays.stream(Icon.values())
-                .filter(icon -> (icon.getMask() & stopLocation.getProducts()) != 0)
+        final List<Product> products = Arrays.stream(Product.values())
+                .filter(product -> (product.getMask() & stopLocation.getProducts()) != 0)
                 .collect(toList());
-        return Stop.builder().icons(icons).name(stopLocation.getName()).build();
+        return Stop.builder().products(products).name(stopLocation.getName()).build();
     }
 }
