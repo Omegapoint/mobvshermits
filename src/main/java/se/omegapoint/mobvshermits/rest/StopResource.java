@@ -55,7 +55,7 @@ public class StopResource {
                 .queryParam("originCoordLong", lon)
                 .build().toUri();
         final Collection<StopLocation> stopLocations = restTemplate.getForEntity(uri, StopLocationsResponse.class).getBody().getStopLocations();
-        return transform(stopLocations, stopLocation -> stop(stopLocation));
+        return transform(stopLocations, StopResource::stop);
     }
 
     private static Stop stop(StopLocation stopLocation) {
