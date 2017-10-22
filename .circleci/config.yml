@@ -41,6 +41,12 @@ jobs:
       # run tests!
       - run: gradle test
 
+      # run sonarqube
+      - run: ./gradlew sonarqube \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.organization=$SONARQUBE_KEY \
+                    -Dsonar.login=ystromm-github
+
 deployment:
   staging:
     branch: master
