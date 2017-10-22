@@ -1,20 +1,16 @@
 package se.omegapoint.mobvshermits.gui;
 
-public enum Product {
+public enum Icon {
     plane(1),
-    shinkansen(2),
-    train(4),
-    expressbus(8),
-    slowtrain(16),
-    subway(32),
-    tram(64),
-    bus(128),
-    boat(256),
+    train(2+4+16),
+    subway(32+64),
+    bus(8+128),
+    ship(256),
     taxi(512);
 
     private final int mask;
 
-    Product(int mask) {
+    Icon(int mask) {
         this.mask = mask;
     }
 

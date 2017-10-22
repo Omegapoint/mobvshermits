@@ -14,7 +14,7 @@ import java.util.Collection;
 @Builder(builderClassName = "Builder")
 public class Stop {
     private final String name;
-    private final Collection<Product> products;
+    private final Collection<Icon> icons;
 
     @JsonPOJOBuilder(withPrefix = "")
     public static class Builder {
