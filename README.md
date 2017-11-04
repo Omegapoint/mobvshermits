@@ -6,9 +6,9 @@ Byggserver:
 https://travis-ci.org/Omegapoint/mobvshermits
 
 Statisk kodanalys:
-https://sonarcloud.io/dashboard?id=se.omegapoint.mobvshermits%3Amobvshermits
+https://sonarcloud.io/dashboard?id=mobvshermits-mob
+https://sonarcloud.io/dashboard?id=mobvshermits-hermits
 
 Installation:
 https://mobvshermits-mob.herokuapp.com
 https://mobvshermits-hermits.herokuapp.com
-(https://mobvshermits-master.herokuapp.com)
