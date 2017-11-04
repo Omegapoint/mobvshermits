@@ -4,8 +4,7 @@ jdk:
 
 script:
 - "./gradlew test"
-- "./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARQUBE_KEY -sonar.projectKey=mobvshermits:mob
- -Dsonar.organization=ystromm-github"
+- "./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARQUBE_KEY -Dsonar.projectKey=mobvshermits-mob -Dsonar.organization=ystromm-github"
 
 deploy:
   provider: heroku
