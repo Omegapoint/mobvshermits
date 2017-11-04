@@ -6,6 +6,17 @@ script:
 - "./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARQUBE_KEY -Dsonar.organization=ystromm-github"
 deploy:
   provider: heroku
-  api_key:
-    secure: wStteRxEqLue1YK+YG3vI1gSek0b1XCh+3L4MzcFbitALeyKUijxWhmTZ9LevcYXFQ9TN1pM3Sf4uTy3ydvXmB2VY+PrxTC0Mpp+lAED6OXaaY4rcYqPRvD5bMjf+W/qVC0PG1pN164l/SrG93eM/S3PKdgEku/43aEfK2I0ZsfWQ7EBBPiG0gvcUU5FA20SB57X8/iFPCYVcHS9h7O4eCSXenmc0W+9yQyEx64lCV+NZ/9ulQ6ECKA+J9bn5SSfqOrA3nBGUownR3WaLS1+yYWVQRWPDlYsiOQGDrv5VFF8omLqAeHG7K8bc65jyQ3A1IZdaWKkug6iY0C8WJL7jKBYnOD+KhRmcXuIckwaX1HXgO69wLs8V4YX8MydvhX+sl45qvFCJYo+nAmSsuZDa/v6mvk+8lYuA4WCezFMhlKuWdbwd9lMDIBQh0sAJ+TJ5JHt50T7jAImr+XsYjm3L5RZEOYDDN8jtZcicSlIR0HOfj5m13xyyzxBamUOHI+TX5VpPrdVFQZMfH05HcPSUVtCfb8UrFMfX1yFkCJiH+nIPkEWIgPJjdpoeYgGpcNEpGOAtWYnpshvt7e0X4xrwTLnyWktSyi0lg+xx22cYbbPm650AdEp1U0tdusJWh6AXOQgCoZx6SiHsc3ylsBUDbSyzrmHoUOiRjt1LNT3qrs=
-  app: mobvshermits-mob
+    api_key:
+      secure: wStteRxEqLue1YK+YG3vI1gSek0b1XCh+3L4MzcFbitALeyKUijxWhmTZ9LevcYXFQ9TN1pM3Sf4uTy3ydvXmB2VY+PrxTC0Mpp+lAED6OXaaY4rcYqPRvD5bMjf+W/qVC0PG1pN164l/SrG93eM/S3PKdgEku/43aEfK2I0ZsfWQ7EBBPiG0gvcUU5FA20SB57X8/iFPCYVcHS9h7O4eCSXenmc0W+9yQyEx64lCV+NZ/9ulQ6ECKA+J9bn5SSfqOrA3nBGUownR3WaLS1+yYWVQRWPDlYsiOQGDrv5VFF8omLqAeHG7K8bc65jyQ3A1IZdaWKkug6iY0C8WJL7jKBYnOD+KhRmcXuIckwaX1HXgO69wLs8V4YX8MydvhX+sl45qvFCJYo+nAmSsuZDa/v6mvk+8lYuA4WCezFMhlKuWdbwd9lMDIBQh0sAJ+TJ5JHt50T7jAImr+XsYjm3L5RZEOYDDN8jtZcicSlIR0HOfj5m13xyyzxBamUOHI+TX5VpPrdVFQZMfH05HcPSUVtCfb8UrFMfX1yFkCJiH+nIPkEWIgPJjdpoeYgGpcNEpGOAtWYnpshvt7e0X4xrwTLnyWktSyi0lg+xx22cYbbPm650AdEp1U0tdusJWh6AXOQgCoZx6SiHsc3ylsBUDbSyzrmHoUOiRjt1LNT3qrs=
+    app: mobvshermits-master
+    on:
+      repo: Omegapoint/mobvshermits
+      branch: master
+  provider: heroku
+    api_key:
+      secure: wStteRxEqLue1YK+YG3vI1gSek0b1XCh+3L4MzcFbitALeyKUijxWhmTZ9LevcYXFQ9TN1pM3Sf4uTy3ydvXmB2VY+PrxTC0Mpp+lAED6OXaaY4rcYqPRvD5bMjf+W/qVC0PG1pN164l/SrG93eM/S3PKdgEku/43aEfK2I0ZsfWQ7EBBPiG0gvcUU5FA20SB57X8/iFPCYVcHS9h7O4eCSXenmc0W+9yQyEx64lCV+NZ/9ulQ6ECKA+J9bn5SSfqOrA3nBGUownR3WaLS1+yYWVQRWPDlYsiOQGDrv5VFF8omLqAeHG7K8bc65jyQ3A1IZdaWKkug6iY0C8WJL7jKBYnOD+KhRmcXuIckwaX1HXgO69wLs8V4YX8MydvhX+sl45qvFCJYo+nAmSsuZDa/v6mvk+8lYuA4WCezFMhlKuWdbwd9lMDIBQh0sAJ+TJ5JHt50T7jAImr+XsYjm3L5RZEOYDDN8jtZcicSlIR0HOfj5m13xyyzxBamUOHI+TX5VpPrdVFQZMfH05HcPSUVtCfb8UrFMfX1yFkCJiH+nIPkEWIgPJjdpoeYgGpcNEpGOAtWYnpshvt7e0X4xrwTLnyWktSyi0lg+xx22cYbbPm650AdEp1U0tdusJWh6AXOQgCoZx6SiHsc3ylsBUDbSyzrmHoUOiRjt1LNT3qrs=
+    app: mobvshermits-mob
+    on:
+      repo: Omegapoint/mobvshermits
+      branch: mob
+
