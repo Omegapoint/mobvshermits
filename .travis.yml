@@ -3,3 +3,4 @@ jdk:
   - oraclejdk8
 script:
   - ./gradlew test
+  - ./gradlew sonarqube -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARQUBE_KEY -Dsonar.organization=ystromm-github
