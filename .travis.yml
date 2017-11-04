@@ -1,11 +1,9 @@
 language: java
 jdk:
 - oraclejdk8
-
 script:
 - "./gradlew test"
 - "./gradlew -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONARQUBE_KEY -Dsonar.projectKey=mobvshermits-mob -Dsonar.organization=ystromm-github sonarqube"
-
 deploy:
   provider: heroku
   api_key:
@@ -17,7 +15,7 @@ deploy:
 
   provider: heroku
   api_key:
-    secure: wStteRxEqLue1YK+YG3vI1gSek0b1XCh+3L4MzcFbitALeyKUijxWhmTZ9LevcYXFQ9TN1pM3Sf4uTy3ydvXmB2VY+PrxTC0Mpp+lAED6OXaaY4rcYqPRvD5bMjf+W/qVC0PG1pN164l/SrG93eM/S3PKdgEku/43aEfK2I0ZsfWQ7EBBPiG0gvcUU5FA20SB57X8/iFPCYVcHS9h7O4eCSXenmc0W+9yQyEx64lCV+NZ/9ulQ6ECKA+J9bn5SSfqOrA3nBGUownR3WaLS1+yYWVQRWPDlYsiOQGDrv5VFF8omLqAeHG7K8bc65jyQ3A1IZdaWKkug6iY0C8WJL7jKBYnOD+KhRmcXuIckwaX1HXgO69wLs8V4YX8MydvhX+sl45qvFCJYo+nAmSsuZDa/v6mvk+8lYuA4WCezFMhlKuWdbwd9lMDIBQh0sAJ+TJ5JHt50T7jAImr+XsYjm3L5RZEOYDDN8jtZcicSlIR0HOfj5m13xyyzxBamUOHI+TX5VpPrdVFQZMfH05HcPSUVtCfb8UrFMfX1yFkCJiH+nIPkEWIgPJjdpoeYgGpcNEpGOAtWYnpshvt7e0X4xrwTLnyWktSyi0lg+xx22cYbbPm650AdEp1U0tdusJWh6AXOQgCoZx6SiHsc3ylsBUDbSyzrmHoUOiRjt1LNT3qrs=
+    secure: HmNJhzYuut2a0tnS+nzju1nSSJOz4XKsKsjumtBs9P4O8pt4s/D1U5FD8HZ97FbAj9/ouNX1x1ZlplFHfbh4kuBoXsjMwJmgQ0uiYL0p8iO9NsgrIVAqkIeLcPy4eXd48z7ndqJ97TNRbX3eZEYdG4YPYgaPKEzCtXaYR+3SNwvZPy8e5aPjxG8c2nygQk8XdmkIazBp1v4WVfX3DYN9Ew9vG9au4JqEdtVSmTKZAXsuI8Ai1kdkbyucI9MsXQwoZhfRDx24IRvwRbbB2PifJTStYLpRXhw0EOD/+EPPwrIBWjRSAjSezpukmkLojFoMRm1x5ew0ra4UucQO4/hcJaTvMkOJTUKSYBKhhj2tdrmPKsUQui6AG/8SgANkxqrokDfiRWdZnpXkX+Fs2nBtG/113FosxMdL2YTOqvFEZ7Qi2x3RJ9UPzI3RF/4LxwZn3lwyXLWV2o91ezud14NA5cJOD/RFuQoRChrOQe2vWhI8vpIQgZQ1o4K82lTcTa7cA6GJwpegupdCxRSAgmhQneQuwSwbgfOjWQEbx3PJsILnaRKlogxCPc3TLya/9P4BXBJderp5rSUxRq7JLsJh+LM8ZwPCaehWfL9ynRi6c6KR4zhVDb2RSQ0BsX2eW4x2rFTXO9g+PzfYFbozlHcowRY6G5EHr3RQfAlz4cbq3Nc=
   app: mobvshermits-mob
   on:
     repo: Omegapoint/mobvshermits
