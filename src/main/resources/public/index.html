@@ -42,11 +42,12 @@
 
 <script>
     const image = jQuery('#branch');
-    if (window.location.href.contains('mobvshermits-mob')) {
-        image.src = 'mob.png';
+    console.log()
+    if (window.location.href.includes('mobvshermits-mob')) {
+        image.attr('src', 'mob.png');
     }
     else {
-        image.src = 'hermit.jpeg';
+        image.attr('src', 'hermit.jpeg');
     }
     const template = Handlebars.compile($("#stops-template").html());
 
