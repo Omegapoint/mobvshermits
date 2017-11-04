@@ -9,16 +9,13 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-10">
+        <div class="col-xs-10">
             <h2>
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 Dina närmaste hållplatser</h2>
         </div>
-        <div class="col-1">
-            <img width="100px" src="mob.png"/>
-        </div>
-        <div class="col-1">
-            <img width="100px" src="hermit.jpeg"/>
+        <div class="col-xs-2">
+            <img id="branch" width="100px"/>
         </div>
     </div>
     <div id="stops">
@@ -44,6 +41,13 @@
 
 
 <script>
+    const image = jQuery('#branch');
+    if (window.location.href.contains('mobvshermits-mob')) {
+        image.src = 'mob.png';
+    }
+    else {
+        image.src = 'hermit.jpeg';
+    }
     const template = Handlebars.compile($("#stops-template").html());
 
     function getLocation() {
@@ -59,5 +63,6 @@
     }
 
     getLocation();
+
 </script>
 </html>
