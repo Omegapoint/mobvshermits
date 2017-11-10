@@ -2,6 +2,10 @@
 
 Workshop för OpKoKo 17.2.
 
+Dokumentation för API:
+
+https://www.trafiklab.se/api/resrobot-reseplanerare/beskrivning
+
 Byggserver:
 
 https://travis-ci.org/Omegapoint/mobvshermits
