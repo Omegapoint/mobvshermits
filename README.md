@@ -6,6 +6,9 @@ Dokumentation för API:
 
 https://www.trafiklab.se/api/resrobot-reseplanerare/beskrivning
 
+Köra lokalt: 
+`./gradlew run` kommer att köra igång porjetet lokalt på `http://localhost:8080/`.
+
 Byggserver:
 
 https://travis-ci.org/Omegapoint/mobvshermits
