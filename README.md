@@ -21,3 +21,5 @@ Installation:
 https://mobvshermits-mob.herokuapp.com
 
 https://mobvshermits-hermits.herokuapp.com
+
+Hermit team 20171111: Dan och Mathias
